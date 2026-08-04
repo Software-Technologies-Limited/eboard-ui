@@ -27,6 +27,11 @@ publish:
   needs: [verify]
   rules:
     - if: '$CI_COMMIT_TAG =~ /^v[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.-]+)?$/'
+  id_tokens:
+    NPM_ID_TOKEN:
+      aud: "npm:registry.npmjs.org"
+    SIGSTORE_ID_TOKEN:
+      aud: sigstore
   script:
     - npm ci
     - |
@@ -36,4 +41,4 @@ publish:
         console.error("Tag " + tag + " must match package version v" + version + ".");
         process.exit(1);
       }'
-    - npm publish --//registry.npmjs.org/:_authToken="$NPM_TOKEN" --registry=https://registry.npmjs.org/
+    - npm publish --registry=https://registry.npmjs.org/
