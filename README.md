@@ -1,4 +1,4 @@
-# @eboard/ui
+# @stlehorizon/eboard-ui
 
 Reusable, state-free Vue 3 components for eBoard. The library preserves the eBoard visual language while remaining safe to use alongside the existing Vuetify and Bootstrap application.
 
@@ -11,15 +11,15 @@ Reusable, state-free Vue 3 components for eBoard. The library preserves the eBoa
 ## Install
 
 ```sh
-npm install @eboard/ui
+npm install @stlehorizon/eboard-ui
 ```
 
 Import the emitted CSS once in the host application:
 
 ```ts
 import { createApp } from 'vue'
-import EboardUi from '@eboard/ui'
-import '@eboard/ui/css'
+import EboardUi from '@stlehorizon/eboard-ui'
+import '@stlehorizon/eboard-ui/css'
 
 createApp(App).use(EboardUi)
 ```
@@ -28,7 +28,7 @@ Use individual exports when preferred:
 
 ```vue
 <script setup lang="ts">
-import { EboardButton, EboardCard, EboardStatusBadge } from '@eboard/ui'
+import { EboardButton, EboardCard, EboardStatusBadge } from '@stlehorizon/eboard-ui'
 </script>
 
 <template>
