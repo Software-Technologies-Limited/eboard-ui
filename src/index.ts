@@ -7,9 +7,14 @@ import './styles/index.css'
 const components = { EbButton, EbCard, EbLoader, EbBadge }
 
 const EboardUi = {
-  install(app: { component: (name: string, component: unknown) => void }, options: { prefix?: string } = {}) {
+  install(
+    app: { component: (name: string, component: unknown) => void },
+    options: { prefix?: string } = {},
+  ) {
     const prefix = options.prefix ?? ''
-    Object.entries(components).forEach(([name, component]) => app.component(`${prefix}${name}`, component))
+    Object.entries(components).forEach(([name, component]) =>
+      app.component(`${prefix}${name}`, component),
+    )
   },
 }
 

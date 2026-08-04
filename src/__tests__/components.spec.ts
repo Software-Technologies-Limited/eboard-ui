@@ -7,12 +7,18 @@ import EbBadge from '../components/EboardStatusBadge.vue'
 
 describe('eBoard UI components', () => {
   it('renders button variants and honours disabled state', () => {
-    const wrapper = mount(EbButton, { props: { variant: 'secondary', disabled: true }, slots: { default: 'Save' } })
+    const wrapper = mount(EbButton, {
+      props: { variant: 'secondary', disabled: true },
+      slots: { default: 'Save' },
+    })
     expect(wrapper.classes()).toContain('eboard-button--secondary')
     expect(wrapper.attributes('disabled')).toBeDefined()
   })
   it('renders card title and content slots', () => {
-    const wrapper = mount(EbCard, { props: { title: 'Meeting pack' }, slots: { default: 'Documents' } })
+    const wrapper = mount(EbCard, {
+      props: { title: 'Meeting pack' },
+      slots: { default: 'Documents' },
+    })
     expect(wrapper.text()).toContain('Meeting pack')
     expect(wrapper.text()).toContain('Documents')
   })
