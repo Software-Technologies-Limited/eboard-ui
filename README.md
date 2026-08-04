@@ -28,14 +28,14 @@ Use individual exports when preferred:
 
 ```vue
 <script setup lang="ts">
-import { EboardButton, EboardCard, EboardStatusBadge } from '@eboard/ui'
+import { EbButton, EbCard, EbBadge } from '@eboard/ui'
 </script>
 
 <template>
-  <EboardCard title="Board meeting">
-    <EboardStatusBadge status="success">Approved</EboardStatusBadge>
-    <EboardButton>Open pack</EboardButton>
-  </EboardCard>
+  <EbCard title="Board meeting">
+    <EbBadge status="success">Approved</EbBadge>
+    <EbButton>Open pack</EbButton>
+  </EbCard>
 </template>
 ```
 

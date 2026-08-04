@@ -1,10 +1,10 @@
-import EboardButton from './components/EboardButton.vue'
-import EboardCard from './components/EboardCard.vue'
-import EboardLoader from './components/EboardLoader.vue'
-import EboardStatusBadge from './components/EboardStatusBadge.vue'
+import EbButton from './components/EboardButton.vue'
+import EbCard from './components/EboardCard.vue'
+import EbLoader from './components/EboardLoader.vue'
+import EbBadge from './components/EboardStatusBadge.vue'
 import './styles/index.css'
 
-const components = { EboardButton, EboardCard, EboardLoader, EboardStatusBadge }
+const components = { EbButton, EbCard, EbLoader, EbBadge }
 
 const EboardUi = {
   install(app: { component: (name: string, component: unknown) => void }, options: { prefix?: string } = {}) {
@@ -14,4 +14,4 @@ const EboardUi = {
 }
 
 export default EboardUi
-export { EboardButton, EboardCard, EboardLoader, EboardStatusBadge }
+export { EbButton, EbCard, EbLoader, EbBadge }
