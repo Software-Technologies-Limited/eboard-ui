@@ -7,6 +7,8 @@ Reusable, state-free Vue 3 components for eBoard. The library preserves the eBoa
 - Vue is the only runtime peer dependency; no router, Pinia, authentication, or API client is bundled.
 - Tailwind compiles the component styles, but Tailwind Preflight is deliberately excluded. Importing this package never resets the host application's `html`, `body`, or element styles.
 - All public component CSS uses the `eboard-` namespace.
+- Public design tokens and the component delivery plan are documented in
+  [`docs/component-contract.md`](docs/component-contract.md).
 
 ## Install
 
@@ -28,7 +30,28 @@ Use individual exports when preferred:
 
 ```vue
 <script setup lang="ts">
-import { EbButton, EbCard, EbBadge } from '@stl-eboard/ui'
+import {
+  EbAlert,
+  EbAvatar,
+  EbBadge,
+  EbButton,
+  EbCard,
+  EbCheckbox,
+  EbConfirmDialog,
+  EbDialog,
+  EbEmptyState,
+  EbFileCard,
+  EbIconButton,
+  EbInput,
+  EbKeyValueList,
+  EbMenu,
+  EbPagination,
+  EbSelect,
+  EbTable,
+  EbTabs,
+  EbTextarea,
+  EbToast,
+} from '@stl-eboard/ui'
 </script>
 
 <template>
