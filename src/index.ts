@@ -3,6 +3,7 @@ import EbCard from './components/EboardCard.vue'
 import EbLoader from './components/EboardLoader.vue'
 import EbBadge from './components/EboardStatusBadge.vue'
 import EbIconButton from './components/EboardIconButton.vue'
+import EbIcon from './components/EboardIcon.vue'
 import EbAlert from './components/EboardAlert.vue'
 import EbToast from './components/EboardToast.vue'
 import EbEmptyState from './components/EboardEmptyState.vue'
@@ -22,7 +23,7 @@ import EbFileCard from './components/EboardFileCard.vue'
 import './styles/index.css'
 
 const components = {
-  EbButton, EbCard, EbLoader, EbBadge, EbIconButton, EbAlert, EbToast, EbEmptyState,
+  EbButton, EbCard, EbLoader, EbBadge, EbIcon, EbIconButton, EbAlert, EbToast, EbEmptyState,
   EbDialog, EbConfirmDialog, EbInput, EbTextarea, EbSelect, EbCheckbox, EbTabs, EbMenu,
   EbPagination, EbAvatar, EbKeyValueList, EbTable, EbFileCard,
 }
@@ -41,7 +42,7 @@ const EboardUi = {
 
 export default EboardUi
 export {
-  EbButton, EbCard, EbLoader, EbBadge, EbIconButton, EbAlert, EbToast, EbEmptyState,
+  EbButton, EbCard, EbLoader, EbBadge, EbIcon, EbIconButton, EbAlert, EbToast, EbEmptyState,
   EbDialog, EbConfirmDialog, EbInput, EbTextarea, EbSelect, EbCheckbox, EbTabs, EbMenu,
   EbPagination, EbAvatar, EbKeyValueList, EbTable, EbFileCard,
 }
@@ -50,3 +51,5 @@ export type { EbSelectOption } from './components/EboardSelect.vue'
 export type { EbTabItem } from './components/EboardTabs.vue'
 export type { EbKeyValueItem } from './components/EboardKeyValueList.vue'
 export type { EbTableColumn } from './components/EboardTable.vue'
+export { eboardMdiIcons } from './icons/mdi'
+export type { EboardMdiIconName } from './icons/mdi'

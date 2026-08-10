@@ -5,6 +5,7 @@ import EbCard from '../components/EboardCard.vue'
 import EbLoader from '../components/EboardLoader.vue'
 import EbBadge from '../components/EboardStatusBadge.vue'
 import EbIconButton from '../components/EboardIconButton.vue'
+import EbIcon from '../components/EboardIcon.vue'
 import EbAlert from '../components/EboardAlert.vue'
 import EbToast from '../components/EboardToast.vue'
 import EbEmptyState from '../components/EboardEmptyState.vue'
@@ -48,9 +49,18 @@ describe('eBoard UI components', () => {
   })
 
   it('renders an accessible icon button', () => {
-    const wrapper = mount(EbIconButton, { props: { ariaLabel: 'Refresh dashboard' } })
+    const wrapper = mount(EbIconButton, { props: { ariaLabel: 'Refresh dashboard', icon: 'cached' } })
     expect(wrapper.attributes('aria-label')).toBe('Refresh dashboard')
     expect(wrapper.classes()).toContain('eboard-icon-button--ghost')
+    expect(wrapper.find('svg').exists()).toBe(true)
+  })
+
+  it('renders curated MDI SVG icons without an icon font', () => {
+    const icon = mount(EbIcon, { props: { name: 'home', ariaLabel: 'Go home', size: 24 } })
+    expect(icon.find('svg').attributes('role')).toBe('img')
+    expect(icon.find('path').attributes('d')).toBeTruthy()
+    expect(icon.find('svg').attributes('aria-label')).toBe('Go home')
+    expect(icon.find('svg').attributes('style')).toContain('24px')
   })
 
   it('emits close events from controlled feedback components', async () => {

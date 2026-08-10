@@ -125,6 +125,7 @@
 .eboard-icon-button--sm { height: 2rem; width: 2rem; }
 .eboard-icon-button--md { height: 2.5rem; width: 2.5rem; }
 .eboard-icon-button--lg { height: 3rem; width: 3rem; }
+.eboard-icon { display: inline-block; flex: none; vertical-align: middle; }
 .eboard-card {
   background: var(--color-eboard-surface);
   border: 1px solid var(--color-eboard-border);

@@ -1,14 +1,18 @@
 <script setup lang="ts">
+import EbIcon from './EboardIcon.vue'
+import type { EboardMdiIconName } from '../icons/mdi'
+
 withDefaults(
   defineProps<{
     ariaLabel: string
+    icon?: EboardMdiIconName | `mdi-${EboardMdiIconName}`
     tooltip?: string
     variant?: 'primary' | 'secondary' | 'danger' | 'ghost'
     size?: 'sm' | 'md' | 'lg'
     disabled?: boolean
     type?: 'button' | 'submit' | 'reset'
   }>(),
-  { tooltip: '', variant: 'ghost', size: 'md', disabled: false, type: 'button' },
+  { icon: undefined, tooltip: '', variant: 'ghost', size: 'md', disabled: false, type: 'button' },
 )
 </script>
 
@@ -21,6 +25,7 @@ withDefaults(
     :disabled="disabled"
     :type="type"
   >
-    <slot />
+    <EbIcon v-if="icon" :name="icon" aria-hidden="true" />
+    <slot v-else />
   </button>
 </template>
