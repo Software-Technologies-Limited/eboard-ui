@@ -27,6 +27,7 @@ import EbDocumentWorkspace from '../components/EboardDocumentWorkspace.vue'
 import EbFileList from '../components/EboardFileList.vue'
 import EbFilterBar from '../components/EboardFilterBar.vue'
 import EbPageHeader from '../components/EboardPageHeader.vue'
+import EbTaskList from '../components/EboardTaskList.vue'
 
 describe('eBoard UI components', () => {
   it('renders button variants and honours disabled state', () => {
@@ -173,5 +174,9 @@ describe('eBoard UI components', () => {
     const workspace = mount(EbDocumentWorkspace, { props: { title: 'Agenda.pdf' }, slots: { list: 'Files', default: 'Viewer' } })
     await workspace.find('.eboard-document-workspace__menu').trigger('click')
     expect(workspace.emitted('update:listOpen')?.[0]).toEqual([false])
+
+    const tasks = mount(EbTaskList, { props: { items: [{ id: 1, title: 'Review agenda', due: 'Due on 30-Apr-2026', owner: 'Vision Evans' }] } })
+    await tasks.find('.eboard-task-item__button').trigger('click')
+    expect(tasks.emitted('select')?.[0]?.[0]).toMatchObject({ title: 'Review agenda' })
   })
 })

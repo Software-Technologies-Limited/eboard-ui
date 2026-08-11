@@ -367,6 +367,10 @@
 .eboard-document-workspace__title { font-size: 1rem; font-weight: 700; margin: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }.eboard-document-workspace__actions { align-items: center; display: flex; gap: 0.5rem; margin-left: auto; }
 .eboard-document-workspace__body { display: flex; flex: 1; min-height: 0; }.eboard-document-workspace__list { border-right: 1px solid var(--eboard-color-border); flex: 0 0 auto; min-width: 12rem; overflow: auto; }.eboard-document-workspace__viewer { flex: 1; min-width: 0; overflow: auto; }
 @media (max-width: 48rem) { .eboard-page-header { grid-template-columns: auto 1fr auto; }.eboard-page-header__title { text-align: left; }.eboard-document-workspace__body { flex-direction: column; }.eboard-document-workspace__list { border-bottom: 1px solid var(--eboard-color-border); border-right: 0; width: 100% !important; }.eboard-filter-bar__actions { margin-left: 0; } }
+.eboard-task-list { font-family: var(--eboard-font-sans); height: 100%; }.eboard-task-list__items { list-style: none; margin: 0; padding: 0; }
+.eboard-task-item { border-bottom: 1px solid #dedede; }.eboard-task-item__button { align-items: center; background: transparent; border: 0; color: var(--eboard-color-text); cursor: pointer; display: flex; gap: 1.25rem; min-height: 6.45rem; padding: 1.2rem 1.4rem; text-align: left; width: 100%; }.eboard-task-item__button:hover, .eboard-task-item--selected .eboard-task-item__button { background: #fafafa; }
+.eboard-task-item__status { align-items: center; border: 3px solid #ef4444; border-radius: 9999px; display: inline-flex; flex: 0 0 auto; height: 1.65rem; justify-content: center; width: 1.65rem; }.eboard-task-item__status span { background: #ef4444; border-radius: 9999px; height: 0.85rem; width: 0.85rem; }
+.eboard-task-item__content { display: grid; gap: 0.18rem; min-width: 0; }.eboard-task-item__title { font-size: 1.1rem; font-weight: 500; line-height: 1.35; }.eboard-task-item__meta { color: #7f7f7f; font-size: 0.94rem; line-height: 1.2; }.eboard-task-item__actions { margin-left: auto; }
 @keyframes eboard-spin {
   to {
     transform: rotate(360deg);
