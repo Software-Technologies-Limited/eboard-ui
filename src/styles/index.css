@@ -126,6 +126,15 @@
 .eboard-icon-button--md { height: 2.5rem; width: 2.5rem; }
 .eboard-icon-button--lg { height: 3rem; width: 3rem; }
 .eboard-icon { display: inline-block; flex: none; vertical-align: middle; }
+
+.eboard-calendar {
+  min-height: 32rem;
+  height: 100%;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.25rem;
+  background: #fff;
+  padding: 0.75rem;
+}
 .eboard-card {
   background: var(--color-eboard-surface);
   border: 1px solid var(--color-eboard-border);

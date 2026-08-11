@@ -20,12 +20,13 @@ import EbAvatar from './components/EboardAvatar.vue'
 import EbKeyValueList from './components/EboardKeyValueList.vue'
 import EbTable from './components/EboardTable.vue'
 import EbFileCard from './components/EboardFileCard.vue'
+import EbCalendar from './components/EboardCalendar.vue'
 import './styles/index.css'
 
 const components = {
   EbButton, EbCard, EbLoader, EbBadge, EbIcon, EbIconButton, EbAlert, EbToast, EbEmptyState,
   EbDialog, EbConfirmDialog, EbInput, EbTextarea, EbSelect, EbCheckbox, EbTabs, EbMenu,
-  EbPagination, EbAvatar, EbKeyValueList, EbTable, EbFileCard,
+  EbPagination, EbAvatar, EbKeyValueList, EbTable, EbFileCard, EbCalendar,
 }
 
 const EboardUi = {
@@ -44,7 +45,7 @@ export default EboardUi
 export {
   EbButton, EbCard, EbLoader, EbBadge, EbIcon, EbIconButton, EbAlert, EbToast, EbEmptyState,
   EbDialog, EbConfirmDialog, EbInput, EbTextarea, EbSelect, EbCheckbox, EbTabs, EbMenu,
-  EbPagination, EbAvatar, EbKeyValueList, EbTable, EbFileCard,
+  EbPagination, EbAvatar, EbKeyValueList, EbTable, EbFileCard, EbCalendar,
 }
 
 export type { EbSelectOption } from './components/EboardSelect.vue'
