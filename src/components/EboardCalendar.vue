@@ -17,7 +17,6 @@ const options = computed(() => ({
   plugins: [dayGridPlugin, timeGridPlugin, interactionPlugin, multiMonthPlugin],
   initialView: 'dayGridMonth',
   events: props.events ?? [],
-  height: '100%',
   headerToolbar: {
     left: 'prev,next today',
     center: 'title',

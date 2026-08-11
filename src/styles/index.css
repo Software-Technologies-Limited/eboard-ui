@@ -128,12 +128,7 @@
 .eboard-icon { display: inline-block; flex: none; vertical-align: middle; }
 
 .eboard-calendar {
-  min-height: 32rem;
   height: 100%;
-  border: 1px solid #e2e8f0;
-  border-radius: 0.25rem;
-  background: #fff;
-  padding: 0.75rem;
 }
 .eboard-card {
   background: var(--color-eboard-surface);
