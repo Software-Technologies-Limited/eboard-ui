@@ -355,7 +355,7 @@
 .eboard-data-table-wrapper { overflow-x: auto; }
 .eboard-data-table { border-collapse: collapse; color: var(--eboard-color-text); font-family: var(--eboard-font-sans); min-width: 100%; width: 100%; }
 .eboard-data-table th, .eboard-data-table td { border-bottom: 1px solid #e5e7eb; padding: 0.75rem 0.875rem; }
-.eboard-data-table th { background: #47b753; color: #fff; font-size: 0.75rem; font-weight: 700; text-align: left; }
+.eboard-data-table th { background: #47b753; color: #fff; font-size: 0.75rem; font-weight: 700; position: sticky; text-align: left; top: 0; z-index: 1; }
 .eboard-data-table--striped tbody tr:nth-child(odd) { background: #e5f7e9; }
 .eboard-data-table__cell--start { text-align: left; }.eboard-data-table__cell--center { text-align: center; }.eboard-data-table__cell--end { text-align: right; }
 .eboard-data-table__row { cursor: pointer; }.eboard-data-table__row:hover { background: #f4f7fb; }
