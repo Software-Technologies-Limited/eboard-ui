@@ -28,13 +28,14 @@ import EbFilterBar from './components/EboardFilterBar.vue'
 import EbPageHeader from './components/EboardPageHeader.vue'
 import EbTaskItem from './components/EboardTaskItem.vue'
 import EbTaskList from './components/EboardTaskList.vue'
+import EbSignatureList from './components/EboardSignatureList.vue'
 import './styles/index.css'
 
 const components = {
   EbButton, EbCard, EbLoader, EbBadge, EbIcon, EbIconButton, EbAlert, EbToast, EbEmptyState,
   EbDialog, EbConfirmDialog, EbInput, EbTextarea, EbSelect, EbCheckbox, EbTabs, EbMenu,
   EbPagination, EbAvatar, EbKeyValueList, EbTable, EbFileCard, EbCalendar, EbDataTable,
-  EbDocumentWorkspace, EbFileList, EbFilterBar, EbPageHeader, EbTaskItem, EbTaskList,
+  EbDocumentWorkspace, EbFileList, EbFilterBar, EbPageHeader, EbTaskItem, EbTaskList, EbSignatureList,
 }
 
 const EboardUi = {
@@ -54,7 +55,7 @@ export {
   EbButton, EbCard, EbLoader, EbBadge, EbIcon, EbIconButton, EbAlert, EbToast, EbEmptyState,
   EbDialog, EbConfirmDialog, EbInput, EbTextarea, EbSelect, EbCheckbox, EbTabs, EbMenu,
   EbPagination, EbAvatar, EbKeyValueList, EbTable, EbFileCard, EbCalendar, EbDataTable,
-  EbDocumentWorkspace, EbFileList, EbFilterBar, EbPageHeader, EbTaskItem, EbTaskList,
+  EbDocumentWorkspace, EbFileList, EbFilterBar, EbPageHeader, EbTaskItem, EbTaskList, EbSignatureList,
 }
 
 export type { EbSelectOption } from './components/EboardSelect.vue'
@@ -64,5 +65,6 @@ export type { EbTableColumn } from './components/EboardTable.vue'
 export type { EbDataTableColumn } from './components/EboardDataTable.vue'
 export type { EbFileListItem } from './components/EboardFileList.vue'
 export type { EbTaskListItem } from './components/EboardTaskList.vue'
+export type { EbSignatureListItem } from './components/EboardSignatureList.vue'
 export { eboardMdiIcons } from './icons/mdi'
 export type { EboardMdiIconName } from './icons/mdi'
