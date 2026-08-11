@@ -21,12 +21,18 @@ import EbKeyValueList from './components/EboardKeyValueList.vue'
 import EbTable from './components/EboardTable.vue'
 import EbFileCard from './components/EboardFileCard.vue'
 import EbCalendar from './components/EboardCalendar.vue'
+import EbDataTable from './components/EboardDataTable.vue'
+import EbDocumentWorkspace from './components/EboardDocumentWorkspace.vue'
+import EbFileList from './components/EboardFileList.vue'
+import EbFilterBar from './components/EboardFilterBar.vue'
+import EbPageHeader from './components/EboardPageHeader.vue'
 import './styles/index.css'
 
 const components = {
   EbButton, EbCard, EbLoader, EbBadge, EbIcon, EbIconButton, EbAlert, EbToast, EbEmptyState,
   EbDialog, EbConfirmDialog, EbInput, EbTextarea, EbSelect, EbCheckbox, EbTabs, EbMenu,
-  EbPagination, EbAvatar, EbKeyValueList, EbTable, EbFileCard, EbCalendar,
+  EbPagination, EbAvatar, EbKeyValueList, EbTable, EbFileCard, EbCalendar, EbDataTable,
+  EbDocumentWorkspace, EbFileList, EbFilterBar, EbPageHeader,
 }
 
 const EboardUi = {
@@ -45,12 +51,15 @@ export default EboardUi
 export {
   EbButton, EbCard, EbLoader, EbBadge, EbIcon, EbIconButton, EbAlert, EbToast, EbEmptyState,
   EbDialog, EbConfirmDialog, EbInput, EbTextarea, EbSelect, EbCheckbox, EbTabs, EbMenu,
-  EbPagination, EbAvatar, EbKeyValueList, EbTable, EbFileCard, EbCalendar,
+  EbPagination, EbAvatar, EbKeyValueList, EbTable, EbFileCard, EbCalendar, EbDataTable,
+  EbDocumentWorkspace, EbFileList, EbFilterBar, EbPageHeader,
 }
 
 export type { EbSelectOption } from './components/EboardSelect.vue'
 export type { EbTabItem } from './components/EboardTabs.vue'
 export type { EbKeyValueItem } from './components/EboardKeyValueList.vue'
 export type { EbTableColumn } from './components/EboardTable.vue'
+export type { EbDataTableColumn } from './components/EboardDataTable.vue'
+export type { EbFileListItem } from './components/EboardFileList.vue'
 export { eboardMdiIcons } from './icons/mdi'
 export type { EboardMdiIconName } from './icons/mdi'

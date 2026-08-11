@@ -22,6 +22,11 @@ import EbAvatar from '../components/EboardAvatar.vue'
 import EbKeyValueList from '../components/EboardKeyValueList.vue'
 import EbTable from '../components/EboardTable.vue'
 import EbFileCard from '../components/EboardFileCard.vue'
+import EbDataTable from '../components/EboardDataTable.vue'
+import EbDocumentWorkspace from '../components/EboardDocumentWorkspace.vue'
+import EbFileList from '../components/EboardFileList.vue'
+import EbFilterBar from '../components/EboardFilterBar.vue'
+import EbPageHeader from '../components/EboardPageHeader.vue'
 
 describe('eBoard UI components', () => {
   it('renders button variants and honours disabled state', () => {
@@ -145,5 +150,28 @@ describe('eBoard UI components', () => {
     const fileCard = mount(EbFileCard, { props: { title: 'Agenda.pdf' } })
     await fileCard.find('button').trigger('click')
     expect(fileCard.emitted('select')).toHaveLength(1)
+  })
+
+  it('renders reusable page, filter, data, file, and document workspace patterns', async () => {
+    const header = mount(EbPageHeader, { props: { title: 'Meeting packs' }, slots: { navigation: 'Back', actions: 'Reload' } })
+    await header.find('.eboard-page-header__navigation').trigger('click')
+    expect(header.emitted('back')).toHaveLength(1)
+
+    const filters = mount(EbFilterBar, { slots: { default: 'Filters', actions: 'Actions' } })
+    expect(filters.text()).toContain('Filters')
+
+    const dataTable = mount(EbDataTable, {
+      props: { columns: [{ key: 'name', label: 'Name', sortable: true }], rows: [{ id: 1, name: 'Agenda.pdf' }] },
+    })
+    await dataTable.find('.eboard-data-table__sort').trigger('click')
+    expect(dataTable.emitted('sort')?.[0]?.[0]).toMatchObject({ key: 'name' })
+
+    const fileList = mount(EbFileList, { props: { items: [{ id: 1, title: 'Agenda.pdf' }] } })
+    await fileList.find('button').trigger('click')
+    expect(fileList.emitted('select')?.[0]?.[0]).toMatchObject({ title: 'Agenda.pdf' })
+
+    const workspace = mount(EbDocumentWorkspace, { props: { title: 'Agenda.pdf' }, slots: { list: 'Files', default: 'Viewer' } })
+    await workspace.find('.eboard-document-workspace__menu').trigger('click')
+    expect(workspace.emitted('update:listOpen')?.[0]).toEqual([false])
   })
 })
