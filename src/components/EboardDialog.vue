@@ -4,9 +4,10 @@ withDefaults(
     modelValue?: boolean
     title?: string
     size?: 'sm' | 'md' | 'lg'
+    maxWidth?: string
     persistent?: boolean
   }>(),
-  { modelValue: false, title: '', size: 'md', persistent: false },
+  { modelValue: false, title: '', size: 'md', maxWidth: '', persistent: false },
 )
 
 const emit = defineEmits<{ 'update:modelValue': [value: boolean]; close: [] }>()
@@ -23,6 +24,7 @@ const close = () => {
       <section
         class="eboard-dialog"
         :class="`eboard-dialog--${size}`"
+        :style="maxWidth ? { maxWidth } : undefined"
         role="dialog"
         aria-modal="true"
         :aria-label="title || 'Dialog'"
