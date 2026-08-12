@@ -75,6 +75,20 @@ Inputs can provide native browser suggestions without requiring a separate datal
 
 Pass `list="existing-list-id"` instead when the datalist is managed by the host application.
 
+## Component sizes
+
+`EbButton`, `EbIconButton`, `EbAvatar`, and `EbDialog` share the complete component size scale:
+`3xs`, `2xs`, `xs`, `sm`, `base`, `md`, `lg`, `xl`, and `2xl` through `9xl`. The default remains
+`md` for backward compatibility.
+
+```vue
+<EbIconButton aria-label="Refresh" icon="cached" size="xl" />
+<EbDialog v-model="open" size="7xl">...</EbDialog>
+```
+
+`EbIcon` remains fully dynamic and accepts either a CSS size string or a pixel number, such as
+`size="2.75rem"` or `:size="44"`.
+
 ## Development
 
 ```sh

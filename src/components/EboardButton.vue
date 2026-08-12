@@ -1,8 +1,10 @@
 <script setup lang="ts">
+import type { EboardComponentSize } from '../types'
+
 withDefaults(
   defineProps<{
     variant?: 'primary' | 'secondary' | 'danger'
-    size?: 'sm' | 'md' | 'lg'
+    size?: EboardComponentSize
     disabled?: boolean
     type?: 'button' | 'submit' | 'reset'
   }>(),

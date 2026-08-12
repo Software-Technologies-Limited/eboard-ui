@@ -33,6 +33,9 @@ CSS must not reset existing Vuetify, Bootstrap, or host element styles.
   `cancel`, and `close`.
 - All interactive components must support keyboard use, disabled state, and visible focus.
 - Slots are used for variable content; typed props are used for predictable, reusable behavior.
+- Sized components use the shared Tailwind-style `3xs` through `9xl` named scale, including
+  `base` and the existing `md` default. Components that represent raw graphics, such as `EbIcon`,
+  may additionally accept exact CSS or numeric sizes.
 
 ## Component delivery order
 

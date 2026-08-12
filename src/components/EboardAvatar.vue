@@ -1,10 +1,12 @@
 <script setup lang="ts">
+import type { EboardComponentSize } from '../types'
+
 withDefaults(
   defineProps<{
     src?: string
     alt?: string
     name?: string
-    size?: 'sm' | 'md' | 'lg'
+    size?: EboardComponentSize
   }>(),
   { src: '', alt: '', name: '', size: 'md' },
 )

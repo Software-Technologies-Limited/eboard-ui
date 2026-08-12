@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import EbIcon from './EboardIcon.vue'
 import type { EboardMdiIconName } from '../icons/mdi'
+import type { EboardComponentSize } from '../types'
 
 withDefaults(
   defineProps<{
@@ -8,7 +9,7 @@ withDefaults(
     icon?: EboardMdiIconName | `mdi-${EboardMdiIconName}`
     tooltip?: string
     variant?: 'primary' | 'secondary' | 'danger' | 'ghost'
-    size?: 'sm' | 'md' | 'lg'
+    size?: EboardComponentSize
     disabled?: boolean
     type?: 'button' | 'submit' | 'reset'
   }>(),

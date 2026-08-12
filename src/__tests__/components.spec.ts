@@ -61,6 +61,28 @@ describe('eBoard UI components', () => {
     expect(wrapper.find('svg').exists()).toBe(true)
   })
 
+  it.each([
+    '3xs', '2xs', 'xs', 'sm', 'base', 'md', 'lg', 'xl',
+    '2xl', '3xl', '4xl', '5xl', '6xl', '7xl', '8xl', '9xl',
+  ] as const)(
+    'supports the shared %s component size',
+    (size) => {
+      expect(mount(EbButton, { props: { size } }).classes()).toContain(`eboard-button--${size}`)
+      expect(
+        mount(EbIconButton, { props: { ariaLabel: 'Action', size } }).classes(),
+      ).toContain(`eboard-icon-button--${size}`)
+      expect(mount(EbAvatar, { props: { name: 'Ada Lovelace', size } }).classes()).toContain(
+        `eboard-avatar--${size}`,
+      )
+
+      const dialog = mount(EbDialog, {
+        props: { modelValue: true, size },
+        global: { stubs: { Teleport: true } },
+      })
+      expect(dialog.find('[role="dialog"]').classes()).toContain(`eboard-dialog--${size}`)
+    },
+  )
+
   it('renders curated MDI SVG icons without an icon font', () => {
     const icon = mount(EbIcon, { props: { name: 'home', ariaLabel: 'Go home', size: 24 } })
     expect(icon.find('svg').attributes('role')).toBe('img')

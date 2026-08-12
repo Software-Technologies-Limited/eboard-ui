@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import type { EboardComponentSize } from '../types'
+
 withDefaults(
   defineProps<{
     modelValue?: boolean
     title?: string
-    size?: 'sm' | 'md' | 'lg'
+    size?: EboardComponentSize
     maxWidth?: string
     persistent?: boolean
   }>(),
