@@ -23,6 +23,8 @@ import EbKeyValueList from '../components/EboardKeyValueList.vue'
 import EbTable from '../components/EboardTable.vue'
 import EbFileCard from '../components/EboardFileCard.vue'
 import EbDataTable from '../components/EboardDataTable.vue'
+import EbSkeleton from '../components/EboardSkeleton.vue'
+import EbTableSkeleton from '../components/EboardTableSkeleton.vue'
 import EbDocumentWorkspace from '../components/EboardDocumentWorkspace.vue'
 import EbFileList from '../components/EboardFileList.vue'
 import EbFilterBar from '../components/EboardFilterBar.vue'
@@ -217,6 +219,21 @@ describe('eBoard UI components', () => {
     expect(loadingTable.find('.eboard-data-table__loading').text()).toContain(
       'Loading briefcase records…',
     )
+
+    const skeleton = mount(EbSkeleton, { props: { variant: 'circle', width: '2rem' } })
+    expect(skeleton.classes()).toContain('eboard-skeleton--circle')
+    expect(skeleton.attributes('style')).toContain('width: 2rem')
+
+    const responsiveSkeleton = mount({
+      components: { EbTableSkeleton },
+      template: '<table><tbody><EbTableSkeleton :rows="2" :columns="columns" /></tbody></table>',
+      data: () => ({ columns: [
+        { key: 'name', skeletonWidth: '90%' },
+        { key: 'size', hideBelow: 'md' },
+      ] }),
+    })
+    expect(responsiveSkeleton.findAll('.eboard-data-table__skeleton-row')).toHaveLength(2)
+    expect(responsiveSkeleton.find('.eboard-table-cell--from-md').exists()).toBe(true)
 
     const fileList = mount(EbFileList, { props: { items: [{ id: 1, title: 'Agenda.pdf' }] } })
     await fileList.find('button').trigger('click')

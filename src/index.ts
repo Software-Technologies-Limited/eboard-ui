@@ -29,6 +29,8 @@ import EbPageHeader from './components/EboardPageHeader.vue'
 import EbTaskItem from './components/EboardTaskItem.vue'
 import EbTaskList from './components/EboardTaskList.vue'
 import EbSignatureList from './components/EboardSignatureList.vue'
+import EbSkeleton from './components/EboardSkeleton.vue'
+import EbTableSkeleton from './components/EboardTableSkeleton.vue'
 import './styles/index.css'
 
 const components = {
@@ -36,6 +38,7 @@ const components = {
   EbDialog, EbConfirmDialog, EbInput, EbTextarea, EbSelect, EbCheckbox, EbTabs, EbMenu,
   EbPagination, EbAvatar, EbKeyValueList, EbTable, EbFileCard, EbCalendar, EbDataTable,
   EbDocumentWorkspace, EbFileList, EbFilterBar, EbPageHeader, EbTaskItem, EbTaskList, EbSignatureList,
+  EbSkeleton, EbTableSkeleton,
 }
 
 const EboardUi = {
@@ -56,6 +59,7 @@ export {
   EbDialog, EbConfirmDialog, EbInput, EbTextarea, EbSelect, EbCheckbox, EbTabs, EbMenu,
   EbPagination, EbAvatar, EbKeyValueList, EbTable, EbFileCard, EbCalendar, EbDataTable,
   EbDocumentWorkspace, EbFileList, EbFilterBar, EbPageHeader, EbTaskItem, EbTaskList, EbSignatureList,
+  EbSkeleton, EbTableSkeleton,
 }
 
 export type { EbSelectOption } from './components/EboardSelect.vue'
@@ -63,6 +67,7 @@ export type { EbTabItem } from './components/EboardTabs.vue'
 export type { EbKeyValueItem } from './components/EboardKeyValueList.vue'
 export type { EbTableColumn } from './components/EboardTable.vue'
 export type { EbDataTableColumn } from './components/EboardDataTable.vue'
+export type { EbResponsiveBreakpoint, EbTableSkeletonColumn } from './components/EboardTableSkeleton.vue'
 export type { EbFileListItem } from './components/EboardFileList.vue'
 export type { EbTaskListItem } from './components/EboardTaskList.vue'
 export type { EbSignatureListItem } from './components/EboardSignatureList.vue'

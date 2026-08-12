@@ -109,6 +109,21 @@ feedback:
 />
 ```
 
+Columns can control both their responsive visibility and skeleton width. The same breakpoint rule
+is applied to the header, loaded cells, and skeleton cells, so the loading state always matches the
+table layout at the current screen size:
+
+```ts
+const columns = [
+  { key: 'name', label: 'Name', skeletonWidth: '85%' },
+  { key: 'size', label: 'Size', hideBelow: 'sm', skeletonWidth: '55%' },
+  { key: 'createdOn', label: 'Created On', hideBelow: 'md' },
+]
+```
+
+`hideBelow` supports `sm`, `md`, `lg`, `xl`, and `2xl`. `EbSkeleton` is also exported for custom
+text, rectangle, and circle placeholders, while `EbTableSkeleton` is available for custom tables.
+
 ## Development
 
 ```sh
