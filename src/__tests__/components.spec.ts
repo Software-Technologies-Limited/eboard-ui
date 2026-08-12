@@ -110,6 +110,20 @@ describe('eBoard UI components', () => {
     await input.find('input').setValue('Ada')
     expect(input.emitted('update:modelValue')?.[0]).toEqual(['Ada'])
 
+    const suggestedInput = mount(EbInput, {
+      props: {
+        id: 'recipient',
+        label: 'Recipient',
+        suggestions: ['board@example.com', 'support@example.com'],
+      },
+    })
+    expect(suggestedInput.find('input').attributes('list')).toBe('recipient-suggestions')
+    expect(suggestedInput.find('datalist').attributes('id')).toBe('recipient-suggestions')
+    expect(suggestedInput.findAll('option').map((option) => option.attributes('value'))).toEqual([
+      'board@example.com',
+      'support@example.com',
+    ])
+
     const textarea = mount(EbTextarea, { props: { label: 'Notes' } })
     await textarea.find('textarea').setValue('Board notes')
     expect(textarea.emitted('update:modelValue')?.[0]).toEqual(['Board notes'])

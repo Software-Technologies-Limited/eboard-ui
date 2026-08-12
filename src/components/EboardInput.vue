@@ -1,5 +1,7 @@
 <script setup lang="ts">
-withDefaults(
+import { computed, getCurrentInstance } from 'vue'
+
+const props = withDefaults(
   defineProps<{
     modelValue?: string | number
     id?: string
@@ -11,12 +13,33 @@ withDefaults(
     disabled?: boolean
     required?: boolean
     autocomplete?: string
+    list?: string
+    suggestions?: Array<string | number>
   }>(),
-  { modelValue: '', id: '', label: '', type: 'text', placeholder: '', hint: '', error: '', disabled: false, required: false, autocomplete: '' },
+  {
+    modelValue: '',
+    id: '',
+    label: '',
+    type: 'text',
+    placeholder: '',
+    hint: '',
+    error: '',
+    disabled: false,
+    required: false,
+    autocomplete: '',
+    list: '',
+    suggestions: () => [],
+  },
 )
 
 const emit = defineEmits<{ 'update:modelValue': [value: string] }>()
 const updateValue = (event: Event) => emit('update:modelValue', (event.target as HTMLInputElement).value)
+const componentId = getCurrentInstance()?.uid ?? 0
+const resolvedListId = computed(() => {
+  if (props.list) return props.list
+  if (!props.suggestions.length) return undefined
+  return `${props.id || `eboard-input-${componentId}`}-suggestions`
+})
 </script>
 
 <template>
@@ -31,9 +54,13 @@ const updateValue = (event: Event) => emit('update:modelValue', (event.target as
       :disabled="disabled"
       :required="required"
       :autocomplete="autocomplete || undefined"
+      :list="resolvedListId"
       :aria-invalid="Boolean(error)"
       @input="updateValue"
     />
+    <datalist v-if="suggestions.length && resolvedListId" :id="resolvedListId">
+      <option v-for="suggestion in suggestions" :key="String(suggestion)" :value="String(suggestion)" />
+    </datalist>
     <span v-if="error" class="eboard-field__error">{{ error }}</span>
     <span v-else-if="hint" class="eboard-field__hint">{{ hint }}</span>
   </label>

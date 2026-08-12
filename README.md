@@ -62,6 +62,19 @@ import {
 </template>
 ```
 
+Inputs can provide native browser suggestions without requiring a separate datalist:
+
+```vue
+<EbInput
+  v-model="recipient"
+  id="support-recipient"
+  label="Recipient"
+  :suggestions="['board@example.com', 'support@example.com']"
+/>
+```
+
+Pass `list="existing-list-id"` instead when the datalist is managed by the host application.
+
 ## Development
 
 ```sh
