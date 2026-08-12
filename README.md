@@ -56,11 +56,17 @@ import {
 
 <template>
   <EbCard title="Board meeting">
-    <EbBadge status="success">Approved</EbBadge>
-    <EbButton>Open pack</EbButton>
+    <div class="p-5">
+      <EbBadge status="success">Approved</EbBadge>
+      <EbButton>Open pack</EbButton>
+    </div>
   </EbCard>
 </template>
 ```
+
+`EbCard` and `EbDialog` content slots are intentionally padding-free so host applications can
+control spacing with Tailwind utilities. Their headers, footers, and interactive controls retain
+their component-owned spacing.
 
 Inputs can provide native browser suggestions without requiring a separate datalist:
 

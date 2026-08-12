@@ -33,6 +33,10 @@ CSS must not reset existing Vuetify, Bootstrap, or host element styles.
   `cancel`, and `close`.
 - All interactive components must support keyboard use, disabled state, and visible focus.
 - Slots are used for variable content; typed props are used for predictable, reusable behavior.
+- Generic content slots remain layout-neutral. Container primitives such as `EbCard` and `EbDialog`
+  do not inject body padding; consuming views apply spacing explicitly with Tailwind utilities.
+- Component-owned regions such as buttons, inputs, table cells, headers, footers, alerts, and empty
+  states retain the spacing required for their interaction and visual design.
 - Data tables keep their column context visible during loading and use centered status feedback
   over configurable skeleton rows.
 - Sized components use the shared Tailwind-style `3xs` through `9xl` named scale, including

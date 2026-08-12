@@ -200,7 +200,7 @@
   margin: 0;
 }
 .eboard-card__body {
-  padding: 1.25rem;
+  padding: 0;
 }
 .eboard-card__footer {
   border-top: 1px solid var(--color-eboard-border);
@@ -343,10 +343,10 @@
 .eboard-dialog__header { border-bottom: 1px solid var(--eboard-color-border); }
 .eboard-dialog__footer { border-top: 1px solid var(--eboard-color-border); justify-content: flex-end; }
 .eboard-dialog__title { font-size: 1rem; margin: 0; }
-.eboard-dialog__body { padding: 1.25rem; }
+.eboard-dialog__body { padding: 0; }
 .eboard-dialog__close { background: transparent; border: 0; color: var(--eboard-color-text-muted); cursor: pointer; font-size: 1.5rem; line-height: 1; padding: 0; }
 .eboard-dialog__close:focus-visible { box-shadow: 0 0 0 3px rgb(227 51 51 / 30%); outline: none; }
-.eboard-confirm-dialog__message { margin: 0; }
+.eboard-confirm-dialog__message { margin: 0; padding: 1.25rem; }
 .eboard-field { color: var(--eboard-color-text); display: grid; font-family: var(--eboard-font-sans); gap: 0.375rem; }
 .eboard-field__label { font-size: 0.875rem; font-weight: 600; }
 .eboard-field__control {
