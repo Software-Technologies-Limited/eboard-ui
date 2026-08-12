@@ -89,6 +89,20 @@ Pass `list="existing-list-id"` instead when the datalist is managed by the host 
 `EbIcon` remains fully dynamic and accepts either a CSS size string or a pixel number, such as
 `size="2.75rem"` or `:size="44"`.
 
+`EbDataTable` keeps its headers visible while loading and displays centered loading feedback over
+animated skeleton rows. Use `skeleton-rows` and `loading-label` when a module needs custom loading
+feedback:
+
+```vue
+<EbDataTable
+  :columns="columns"
+  :rows="rows"
+  :loading="loading"
+  :skeleton-rows="6"
+  loading-label="Loading briefcase records…"
+/>
+```
+
 ## Development
 
 ```sh

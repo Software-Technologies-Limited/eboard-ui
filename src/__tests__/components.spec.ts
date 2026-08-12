@@ -203,6 +203,21 @@ describe('eBoard UI components', () => {
     await dataTable.find('.eboard-data-table__sort').trigger('click')
     expect(dataTable.emitted('sort')?.[0]?.[0]).toMatchObject({ key: 'name' })
 
+    const loadingTable = mount(EbDataTable, {
+      props: {
+        columns: [{ key: 'name', label: 'Name' }, { key: 'size', label: 'Size' }],
+        rows: [],
+        loading: true,
+        loadingLabel: 'Loading briefcase records…',
+        skeletonRows: 3,
+      },
+    })
+    expect(loadingTable.find('.eboard-data-table-wrapper').attributes('aria-busy')).toBe('true')
+    expect(loadingTable.findAll('.eboard-data-table__skeleton-row')).toHaveLength(3)
+    expect(loadingTable.find('.eboard-data-table__loading').text()).toContain(
+      'Loading briefcase records…',
+    )
+
     const fileList = mount(EbFileList, { props: { items: [{ id: 1, title: 'Agenda.pdf' }] } })
     await fileList.find('button').trigger('click')
     expect(fileList.emitted('select')?.[0]?.[0]).toMatchObject({ title: 'Agenda.pdf' })
