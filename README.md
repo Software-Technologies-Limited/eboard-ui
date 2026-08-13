@@ -16,6 +16,14 @@ Reusable, state-free Vue 3 components for eBoard. The library preserves the eBoa
 npm install @stl-eboard/ui
 ```
 
+Requirements:
+
+- Vue 3.3.4 or newer
+- Node.js 22.18 or newer (or Node.js 24.12 or newer) for local development and builds
+
+For the complete setup and copy-ready component examples, read
+[`docs/installation-and-usage.md`](docs/installation-and-usage.md).
+
 Import the emitted CSS once in the host application:
 
 ```ts
@@ -25,6 +33,10 @@ import '@stl-eboard/ui/css'
 
 createApp(App).use(EboardUi)
 ```
+
+The package CSS is already compiled. A consuming application does not need Tailwind merely to
+render eBoard components. Applications that use Tailwind utilities should configure Tailwind v4
+with `@tailwindcss/vite` as described in the installation guide.
 
 Use individual exports when preferred:
 
@@ -123,6 +135,11 @@ const columns = [
 
 `hideBelow` supports `sm`, `md`, `lg`, `xl`, and `2xl`. `EbSkeleton` is also exported for custom
 text, rectangle, and circle placeholders, while `EbTableSkeleton` is available for custom tables.
+
+## Documentation
+
+- [Installation and component usage](docs/installation-and-usage.md)
+- [Component contract and design tokens](docs/component-contract.md)
 
 ## Development
 

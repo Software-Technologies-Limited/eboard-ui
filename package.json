@@ -25,7 +25,8 @@
     "./css": "./dist/eboard-ui.css"
   },
   "files": [
-    "dist"
+    "dist",
+    "docs"
   ],
   "sideEffects": [
     "**/*.css"
