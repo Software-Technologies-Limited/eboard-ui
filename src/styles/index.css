@@ -409,10 +409,10 @@
 .eboard-key-value-list { display: grid; font-family: var(--eboard-font-sans); gap: 0.5rem 1rem; grid-template-columns: auto 1fr; margin: 0; }
 .eboard-key-value-list__label { color: var(--eboard-color-text-muted); font-size: 0.875rem; }
 .eboard-key-value-list__value { color: var(--eboard-color-text); margin: 0; }
-.eboard-table-wrapper { overflow-x: auto; }
+.eboard-table-wrapper { overflow: auto; position: relative; }
 .eboard-table { border-collapse: collapse; color: var(--eboard-color-text); font-family: var(--eboard-font-sans); min-width: 100%; width: 100%; }
 .eboard-table th, .eboard-table td { border-bottom: 1px solid var(--eboard-color-border); padding: 0.75rem 1rem; }
-.eboard-table th { background: var(--eboard-color-surface-muted); font-size: 0.75rem; text-transform: uppercase; }
+.eboard-table th { background: var(--eboard-color-surface-muted); font-size: 0.75rem; position: sticky; text-transform: uppercase; top: 0; z-index: 10; }
 .eboard-table__cell--start { text-align: left; }
 .eboard-table__cell--center { text-align: center; }
 .eboard-table__cell--end { text-align: right; }
@@ -434,10 +434,10 @@
 .eboard-filter-bar { align-items: center; background: #fff; display: flex; flex-wrap: wrap; font-family: var(--eboard-font-sans); gap: 0.75rem; padding: 0.75rem; }
 .eboard-filter-bar__filters, .eboard-filter-bar__actions { align-items: center; display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .eboard-filter-bar__actions { margin-left: auto; }
-.eboard-data-table-wrapper { overflow-x: auto; position: relative; }
+.eboard-data-table-wrapper { overflow: auto; position: relative; }
 .eboard-data-table { border-collapse: collapse; color: var(--eboard-color-text); font-family: var(--eboard-font-sans); min-width: 100%; width: 100%; }
 .eboard-data-table th, .eboard-data-table td { border-bottom: 1px solid #e5e7eb; padding: 0.75rem 0.875rem; }
-.eboard-data-table th { background: #47b753; color: #fff; font-size: 0.75rem; font-weight: 700; position: sticky; text-align: left; top: 0; z-index: 1; }
+.eboard-data-table th { background: #47b753; color: #fff; font-size: 0.75rem; font-weight: 700; position: sticky; text-align: left; top: 0; z-index: 10; }
 .eboard-data-table td { font-size: 0.875rem; font-weight: 400; line-height: 1.5; }
 .eboard-data-table--striped tbody tr:nth-child(odd) { background: #e5f7e9; }
 .eboard-data-table__cell--start { text-align: left; }.eboard-data-table__cell--center { text-align: center; }.eboard-data-table__cell--end { text-align: right; }

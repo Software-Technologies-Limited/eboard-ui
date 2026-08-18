@@ -23,9 +23,10 @@ withDefaults(defineProps<{
   emptyTitle?: string
   emptyDescription?: string
   striped?: boolean
+  maxHeight?: string
 }>(), {
   rowKey: 'id', loading: false, loadingLabel: 'Loading records…', skeletonRows: 5,
-  emptyTitle: 'No records found', emptyDescription: '', striped: true,
+  emptyTitle: 'No records found', emptyDescription: '', striped: true, maxHeight: '100%',
 })
 
 function responsiveClass(column: EbDataTableColumn) {
@@ -39,9 +40,9 @@ defineEmits<{
 </script>
 
 <template>
-  <div class="eboard-data-table-wrapper" :aria-busy="loading">
+  <div class="eboard-data-table-wrapper" :aria-busy="loading" :style="{ maxHeight }">
     <table class="eboard-data-table" :class="{ 'eboard-data-table--striped': striped }">
-      <thead>
+      <thead class="eboard-data-table__head">
         <tr>
           <th v-for="column in columns" :key="column.key" :class="[`eboard-data-table__cell--${column.align || 'start'}`, responsiveClass(column)]" :style="{ width: column.width }" scope="col">
             <button v-if="column.sortable" class="eboard-data-table__sort" type="button" @click="$emit('sort', column)">

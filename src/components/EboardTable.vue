@@ -16,17 +16,18 @@ withDefaults(
     loading?: boolean
     emptyTitle?: string
     emptyDescription?: string
+    maxHeight?: string
   }>(),
-  { rowKey: 'id', loading: false, emptyTitle: 'No records found', emptyDescription: '' },
+  { rowKey: 'id', loading: false, emptyTitle: 'No records found', emptyDescription: '', maxHeight: '100%' },
 )
 
 defineEmits<{ rowClick: [row: Record<string, unknown>] }>()
 </script>
 
 <template>
-  <div class="eboard-table-wrapper">
+  <div class="eboard-table-wrapper" :style="{ maxHeight }">
     <table class="eboard-table">
-      <thead>
+      <thead class="eboard-table__head">
         <tr>
           <th v-for="column in columns" :key="column.key" :class="`eboard-table__cell--${column.align || 'start'}`" scope="col">
             {{ column.label }}
