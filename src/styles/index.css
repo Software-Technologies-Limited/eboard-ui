@@ -17,7 +17,7 @@
 }
 
 :root {
-  --eboard-font-sans: Arial, Helvetica, sans-serif;
+  --eboard-font-sans: "Roboto", Arial, Helvetica, sans-serif;
   --eboard-color-brand: #e33333;
   --eboard-color-brand-hover: #c82525;
   --eboard-color-success: #27ae60;
@@ -180,6 +180,10 @@
 
 .eboard-calendar {
   height: 100%;
+}
+.eboard-calendar .fc .fc-toolbar-title {
+  font-weight: 400;
+  line-height: 1.5;
 }
 .eboard-card {
   background: var(--color-eboard-surface);
@@ -434,6 +438,7 @@
 .eboard-data-table { border-collapse: collapse; color: var(--eboard-color-text); font-family: var(--eboard-font-sans); min-width: 100%; width: 100%; }
 .eboard-data-table th, .eboard-data-table td { border-bottom: 1px solid #e5e7eb; padding: 0.75rem 0.875rem; }
 .eboard-data-table th { background: #47b753; color: #fff; font-size: 0.75rem; font-weight: 700; position: sticky; text-align: left; top: 0; z-index: 1; }
+.eboard-data-table td { font-size: 0.875rem; font-weight: 400; line-height: 1.5; }
 .eboard-data-table--striped tbody tr:nth-child(odd) { background: #e5f7e9; }
 .eboard-data-table__cell--start { text-align: left; }.eboard-data-table__cell--center { text-align: center; }.eboard-data-table__cell--end { text-align: right; }
 .eboard-data-table__row { cursor: pointer; }.eboard-data-table__row:hover { background: #f4f7fb; }
@@ -491,8 +496,8 @@
 .eboard-task-list { font-family: var(--eboard-font-sans); height: 100%; }.eboard-task-list__items { list-style: none; margin: 0; padding: 0; }
 .eboard-task-item { border-bottom: 1px solid #dedede; }.eboard-task-item__button { align-items: center; background: transparent; border: 0; color: var(--eboard-color-text); cursor: pointer; display: flex; gap: 1.25rem; min-height: 6.45rem; padding: 1.2rem 1.4rem; text-align: left; width: 100%; }.eboard-task-item__button:hover, .eboard-task-item--selected .eboard-task-item__button { background: #fafafa; }
 .eboard-task-item__status { align-items: center; border: 3px solid #ef4444; border-radius: 9999px; display: inline-flex; flex: 0 0 auto; height: 1.65rem; justify-content: center; width: 1.65rem; }.eboard-task-item__status span { background: #ef4444; border-radius: 9999px; height: 0.85rem; width: 0.85rem; }
-.eboard-task-item__content { display: grid; gap: 0.18rem; min-width: 0; }.eboard-task-item__title { font-size: 1.1rem; font-weight: 500; line-height: 1.35; }.eboard-task-item__meta { color: #7f7f7f; font-size: 0.94rem; line-height: 1.2; }.eboard-task-item__actions { margin-left: auto; }
-.eboard-signature-list { font-family: var(--eboard-font-sans); }.eboard-signature-list__item { border-bottom: 1px solid #dedede; padding: 1.35rem 1rem; }.eboard-signature-list__summary { background: transparent; border: 0; color: var(--eboard-color-text); cursor: pointer; display: grid; gap: 0.2rem; padding: 0; text-align: left; width: 100%; }.eboard-signature-list__summary strong { font-size: 1.1rem; font-weight: 500; line-height: 1.35; }.eboard-signature-list__summary span { color: #7f7f7f; font-size: 0.94rem; line-height: 1.2; }.eboard-signature-list__actions { display: flex; justify-content: space-between; margin-top: 1rem; }.eboard-signature-list__button { background: #fff; border: 0; border-radius: 0.35rem; box-shadow: 0 2px 5px rgb(0 0 0 / 20%); color: #b00020; cursor: pointer; font-size: 0.9rem; letter-spacing: 0.09em; min-width: 6.25rem; padding: 0.7rem 1.1rem; text-transform: uppercase; }.eboard-signature-list__button:disabled { cursor: not-allowed; opacity: 0.45; }.eboard-signature-list__signatories { margin-top: 0.9rem; text-align: center; }.eboard-signature-list__signatories summary { background: #444; border-radius: 0.35rem; color: #fff; cursor: pointer; display: inline-block; list-style: none; padding: 0.6rem 1rem; }.eboard-signature-list__signatories summary::-webkit-details-marker { display: none; }.eboard-signature-list__signatories ul { list-style: none; margin: 0.75rem 0 0; padding: 0; text-align: left; }.eboard-signature-list__signatories li { align-items: center; border-top: 1px solid #e5e7eb; display: flex; justify-content: space-between; padding: 0.55rem 0; }.eboard-signature-list__signatories small { color: #7f7f7f; display: block; }.eboard-signature-list__signed { color: var(--eboard-color-success); }.eboard-signature-list__unsigned { color: #9ca3af; }
+.eboard-task-item__content { display: grid; gap: 0.18rem; min-width: 0; }.eboard-task-item__title { font-size: 1.25rem; font-weight: 500; letter-spacing: 0.0125em; line-height: 2rem; }.eboard-task-item__meta { color: rgb(0 0 0 / 60%); font-size: 0.875rem; font-weight: 400; line-height: 1.425; }.eboard-task-item__actions { margin-left: auto; }
+.eboard-signature-list { font-family: var(--eboard-font-sans); }.eboard-signature-list__item { border-bottom: 1px solid #dedede; padding: 1.35rem 1rem; }.eboard-signature-list__summary { background: transparent; border: 0; color: var(--eboard-color-text); cursor: pointer; display: grid; gap: 0.2rem; padding: 0; text-align: left; width: 100%; }.eboard-signature-list__summary strong { font-size: 1.25rem; font-weight: 500; letter-spacing: 0.0125em; line-height: 2rem; }.eboard-signature-list__summary span { color: rgb(0 0 0 / 60%); font-size: 0.875rem; font-weight: 400; line-height: 1.425; }.eboard-signature-list__actions { display: flex; justify-content: space-between; margin-top: 1rem; }.eboard-signature-list__button { background: #fff; border: 0; border-radius: 0.35rem; box-shadow: 0 2px 5px rgb(0 0 0 / 20%); color: #b00020; cursor: pointer; font-size: 0.9rem; letter-spacing: 0.09em; min-width: 6.25rem; padding: 0.7rem 1.1rem; text-transform: uppercase; }.eboard-signature-list__button:disabled { cursor: not-allowed; opacity: 0.45; }.eboard-signature-list__signatories { margin-top: 0.9rem; text-align: center; }.eboard-signature-list__signatories summary { background: #444; border-radius: 0.35rem; color: #fff; cursor: pointer; display: inline-block; list-style: none; padding: 0.6rem 1rem; }.eboard-signature-list__signatories summary::-webkit-details-marker { display: none; }.eboard-signature-list__signatories ul { list-style: none; margin: 0.75rem 0 0; padding: 0; text-align: left; }.eboard-signature-list__signatories li { align-items: center; border-top: 1px solid #e5e7eb; display: flex; justify-content: space-between; padding: 0.55rem 0; }.eboard-signature-list__signatories small { color: #7f7f7f; display: block; }.eboard-signature-list__signed { color: var(--eboard-color-success); }.eboard-signature-list__unsigned { color: #9ca3af; }
 @keyframes eboard-spin {
   to {
     transform: rotate(360deg);
