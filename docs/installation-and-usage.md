@@ -275,6 +275,23 @@ over its spacing with Tailwind utilities:
 
 Use the `header` slot when the header needs controls in addition to a title.
 
+For cards with long lists, give the card an explicit height and enable its built-in scroll region.
+The header and footer remain fixed while only the body scrolls, with mouse, keyboard, and touch
+support:
+
+```vue
+<EbCard
+  title="Board members"
+  scrollable
+  scroll-label="Board directory members"
+  class="h-[75vh]"
+>
+  <MemberRow v-for="member in members" :key="member.id" :member="member" />
+</EbCard>
+```
+
+Do not add another `overflow-y-auto` wrapper inside a scrollable card.
+
 ### Dialogs and confirmations
 
 ```vue

@@ -48,6 +48,16 @@ describe('eBoard UI components', () => {
     expect(wrapper.text()).toContain('Meeting pack')
     expect(wrapper.text()).toContain('Documents')
   })
+  it('provides an accessible scroll region when a card is scrollable', () => {
+    const wrapper = mount(EbCard, {
+      props: { scrollable: true, scrollLabel: 'Board members' },
+      slots: { default: 'Members' },
+    })
+
+    expect(wrapper.classes()).toContain('eboard-card--scrollable')
+    expect(wrapper.find('.eboard-card__body').attributes('tabindex')).toBe('0')
+    expect(wrapper.find('.eboard-card__body').attributes('aria-label')).toBe('Board members')
+  })
   it('renders status and accessible loading text', () => {
     const badge = mount(EbBadge, { props: { status: 'success' }, slots: { default: 'Approved' } })
     const loader = mount(EbLoader, { props: { label: 'Fetching files' } })

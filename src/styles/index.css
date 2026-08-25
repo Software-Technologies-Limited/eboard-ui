@@ -206,6 +206,42 @@
 .eboard-card__body {
   padding: 0;
 }
+.eboard-card--scrollable {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+}
+.eboard-card--scrollable .eboard-card__header,
+.eboard-card--scrollable .eboard-card__footer {
+  flex: none;
+}
+.eboard-card--scrollable .eboard-card__body {
+  -webkit-overflow-scrolling: touch;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-color: var(--eboard-color-brand) var(--eboard-color-surface-muted);
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  touch-action: pan-y;
+}
+.eboard-card--scrollable .eboard-card__body:focus-visible {
+  box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--eboard-color-brand) 45%, transparent);
+  outline: none;
+}
+.eboard-card--scrollable .eboard-card__body::-webkit-scrollbar {
+  width: 0.5rem;
+}
+.eboard-card--scrollable .eboard-card__body::-webkit-scrollbar-track {
+  background: var(--eboard-color-surface-muted);
+}
+.eboard-card--scrollable .eboard-card__body::-webkit-scrollbar-thumb {
+  background: var(--eboard-color-brand);
+  border: 0.125rem solid var(--eboard-color-surface-muted);
+  border-radius: 9999px;
+}
 .eboard-card__footer {
   border-top: 1px solid var(--color-eboard-border);
   padding: 0.875rem 1.25rem;

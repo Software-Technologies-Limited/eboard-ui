@@ -80,6 +80,10 @@ import {
 control spacing with Tailwind utilities. Their headers, footers, and interactive controls retain
 their component-owned spacing.
 
+Set `scrollable` on a height-constrained `EbCard` to keep its header and footer fixed while its body
+provides an accessible mouse, keyboard, and touch scroll region. Use `scroll-label` to describe the
+region when the title does not already provide enough context.
+
 Inputs can provide native browser suggestions without requiring a separate datalist:
 
 ```vue
