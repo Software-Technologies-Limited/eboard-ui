@@ -7,7 +7,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/James-Njoro/eboard-ui.git"
+    "url": "git+https://github.com/Software-Technologies-Limited/eboard-ui.git"
   },
   "publishConfig": {
     "access": "public",
