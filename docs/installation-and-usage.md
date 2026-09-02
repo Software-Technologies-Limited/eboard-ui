@@ -443,7 +443,14 @@ custom table must use the same responsive placeholder behavior as `EbDataTable`.
 ### Page headers and filters
 
 ```vue
-<EbPageHeader title="Briefcase" color="#cc8e29" @back="router.back()">
+<EbPageHeader
+  title="Briefcase"
+  color="#cc8e29"
+  title-class="text-4xl leading-none"
+  navigation-class="p-0"
+  actions-class="gap-3"
+  @back="router.back()"
+>
   <template #navigation><EbIcon name="arrow-left" /></template>
   <template #actions><EbIconButton icon="refresh" aria-label="Refresh" @click="loadFiles" /></template>
 </EbPageHeader>
@@ -453,6 +460,10 @@ custom table must use the same responsive placeholder behavior as `EbDataTable`.
   <template #actions><EbButton variant="secondary" @click="resetFilters">Reset</EbButton></template>
 </EbFilterBar>
 ```
+
+Use `title-class`, `navigation-class`, `start-class`, and `actions-class` for page-specific
+Tailwind styling. Keep class names as complete static strings so Tailwind can detect and generate
+them in the consuming application.
 
 ### Tasks, signatures, and files
 

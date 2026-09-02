@@ -202,7 +202,20 @@ describe('eBoard UI components', () => {
   })
 
   it('renders reusable page, filter, data, file, and document workspace patterns', async () => {
-    const header = mount(EbPageHeader, { props: { title: 'Meeting packs' }, slots: { navigation: 'Back', actions: 'Reload' } })
+    const header = mount(EbPageHeader, {
+      props: {
+        title: 'Meeting packs',
+        startClass: 'gap-3',
+        navigationClass: 'p-0',
+        titleClass: 'text-4xl',
+        actionsClass: 'gap-4',
+      },
+      slots: { navigation: 'Back', actions: 'Reload' },
+    })
+    expect(header.find('.eboard-page-header__start').classes()).toContain('gap-3')
+    expect(header.find('.eboard-page-header__navigation').classes()).toContain('p-0')
+    expect(header.find('.eboard-page-header__title').classes()).toContain('text-4xl')
+    expect(header.find('.eboard-page-header__actions').classes()).toContain('gap-4')
     await header.find('.eboard-page-header__navigation').trigger('click')
     expect(header.emitted('back')).toHaveLength(1)
 
