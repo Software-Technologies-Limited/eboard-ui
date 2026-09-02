@@ -4,8 +4,10 @@ on:
   push:
     branches:
       - main
-    tags:
-      - "v*"
+
+concurrency:
+  group: package-release
+  cancel-in-progress: false
 
 permissions:
   contents: read
@@ -28,16 +30,17 @@ jobs:
       - run: npm pack --dry-run
 
   publish:
-    if: startsWith(github.ref, 'refs/tags/v')
     needs: verify
     runs-on: ubuntu-latest
 
     permissions:
-      contents: read
+      contents: write
       id-token: write
 
     steps:
       - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-node@v6
         with:
@@ -47,15 +50,50 @@ jobs:
 
       - run: npm ci
 
-      - name: Verify tag matches package version
+      - name: Calculate next patch version
+        id: version
         run: |
           node -e '
-            const version = require("./package.json").version;
-            const tag = process.env.GITHUB_REF_NAME;
-            if (`v${version}` !== tag) {
-              console.error(`Tag ${tag} must match package version v${version}.`);
-              process.exit(1);
+            const { execSync } = require("node:child_process");
+            const { appendFileSync } = require("node:fs");
+            const local = require("./package.json").version;
+            let published = "0.0.0";
+
+            try {
+              published = execSync("npm view @stl-eboard/ui version", {
+                encoding: "utf8",
+              }).trim();
+            } catch {
+              console.log("No existing npm release found; using the local version as the baseline.");
             }
+
+            const parts = (version) => version.split("-")[0].split(".").map(Number);
+            const compare = (left, right) => {
+              const a = parts(left);
+              const b = parts(right);
+              return a[0] - b[0] || a[1] - b[1] || a[2] - b[2];
+            };
+            const baseline = compare(local, published) >= 0 ? local : published;
+            const [major, minor, patch] = parts(baseline);
+            const next = `${major}.${minor}.${patch + 1}`;
+
+            console.log(`Local: ${local}; npm: ${published}; releasing: ${next}`);
+            appendFileSync(process.env.GITHUB_OUTPUT, `value=${next}\n`);
           '
 
-      - run: npm publish
+      - name: Set package version
+        run: npm version "${{ steps.version.outputs.value }}" --no-git-tag-version
+
+      - name: Publish package
+        run: npm publish --registry=https://registry.npmjs.org/
+
+      - name: Record release in GitHub
+        env:
+          VERSION: ${{ steps.version.outputs.value }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add package.json package-lock.json
+          git commit -m "chore(release): v${VERSION} [skip ci]"
+          git tag "v${VERSION}"
+          git push origin HEAD:main "v${VERSION}"
