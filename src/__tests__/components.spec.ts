@@ -32,6 +32,17 @@ import EbPageHeader from '../components/EboardPageHeader.vue'
 import EbTaskList from '../components/EboardTaskList.vue'
 
 describe('eBoard UI components', () => {
+  it('renders the tracker comment icon with plain and mdi-prefixed names', () => {
+    for (const name of ['comment-text-outline', 'mdi-comment-text-outline'] as const) {
+      const icon = mount(EbIcon, { props: { name, ariaLabel: 'Comments' } })
+      expect(icon.find('path').attributes('d')).toBeTruthy()
+      expect(icon.find('svg').attributes('aria-label')).toBe('Comments')
+    }
+    const button = mount(EbIconButton, {
+      props: { icon: 'comment-text-outline', ariaLabel: 'View comments' },
+    })
+    expect(button.find('path').attributes('d')).toBeTruthy()
+  })
   it('renders button variants and honours disabled state', () => {
     const wrapper = mount(EbButton, {
       props: { variant: 'secondary', disabled: true },
